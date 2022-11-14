@@ -42,7 +42,6 @@ const TeamStoreContext = React.createContext<TeamStore>(
     null as unknown as TeamStore
 );
 
-// @ts-ignore
 export const useTeamStore = () => useContext(TeamStoreContext);
 
 type Props = {
