@@ -1,12 +1,10 @@
 import React from 'react';
 import {observer} from "mobx-react-lite";
-import Athlete from "../models/Athlete";
 import TradeForm from "./TradeForm";
-
-const lebronJames = new Athlete('Lebron James', 37);
-const stephCurry = new Athlete('Steph Curry', 34);
+import { useTeamStore } from '../store/TeamStore';
 
 const Roster = () => {
+    const {players} = useTeamStore();
     return (
         <table>
             <tr>
@@ -16,7 +14,7 @@ const Roster = () => {
                 <th>Trade Form</th>
                 <th>Is it their birthday?</th>
             </tr>
-            {[lebronJames, stephCurry].map(athlete => {
+            {players.map(athlete => {
                 return (
                     <tr key={athlete.name}>
                         <td>{athlete.name}</td>
