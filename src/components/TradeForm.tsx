@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {observer} from "mobx-react-lite";
-import Athlete from "../store/Athlete";
+import Athlete from "../models/Athlete";
 
 type Props = {
     athlete: Athlete
