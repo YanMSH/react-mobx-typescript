@@ -1,4 +1,4 @@
-import {makeObservable} from "mobx";
+import {action, makeObservable, observable} from "mobx";
 
 export default class Athlete {
     name: string;
@@ -11,9 +11,19 @@ export default class Athlete {
         this.teamHistory = [];
 
         makeObservable(this, {
-            name: true,
-            age: true,
+            wishHappyBirthday: action,
+            tradePlayer: action,
+            name: observable,
+            age: observable,
             teamHistory: true,
         })
+    }
+
+    wishHappyBirthday(){
+        this.age++;
+    }
+
+    tradePlayer(team: string){
+        this.teamHistory.push(team);
     }
 }
